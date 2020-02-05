@@ -1,0 +1,5 @@
+C:\Users\510299\Documents\GitHub\Team6Lab2\Team6Lab2\DatabaseTables\bin\Debug\DatabaseTables.dll
+C:\Users\510299\Documents\GitHub\Team6Lab2\Team6Lab2\DatabaseTables\bin\Debug\DatabaseTables.pdb
+C:\Users\510299\Documents\GitHub\Team6Lab2\Team6Lab2\DatabaseTables\obj\Debug\DatabaseTables.csprojAssemblyReference.cache
+C:\Users\510299\Documents\GitHub\Team6Lab2\Team6Lab2\DatabaseTables\obj\Debug\DatabaseTables.dll
+C:\Users\510299\Documents\GitHub\Team6Lab2\Team6Lab2\DatabaseTables\obj\Debug\DatabaseTables.pdb
