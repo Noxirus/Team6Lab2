@@ -13,5 +13,15 @@ namespace Team6Lab2
         {
 
         }
+        protected void SlipRegister()
+        {
+            bool loggedIn = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            Session["selectedId"] = gvAvailableSlips.SelectedValue;
+            if (loggedIn)
+            {
+
+            }
+
+        }
     }
 }
