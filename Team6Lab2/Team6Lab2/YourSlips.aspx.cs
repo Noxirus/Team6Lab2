@@ -17,5 +17,18 @@ namespace Team6Lab2
         {
 
         }
+
+        protected void gvCustomerLeases_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //int selectedRowIndex = gvCustomerLeases.SelectedRow.RowIndex;
+
+            //int slipID = gvCustomerLeases.SelectedRow.;
+
+
+            //int selectedRowIndex = dgvPackages.SelectedCells[0].RowIndex;
+            //DataGridViewRow selectedRow = dgvPackages.Rows[selectedRowIndex];
+            //not nullable
+            //selectedPackage.PackageID = Convert.ToInt32(selectedRow.Cells["PackageID"].Value);
+        }
     }
 }

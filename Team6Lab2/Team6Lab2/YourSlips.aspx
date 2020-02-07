@@ -3,23 +3,17 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Your slip reservation history<%: Title %>.</h2>
     <h3>List below of all your slips</h3>
-    <p>&nbsp;</p>
+    <p>Current Customer</p>
     <p>
         <asp:DropDownList ID="ddlCurrentCustomer" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="FirstName" DataValueField="ID">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MarinaConnectionString %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
     </p>
-    <p>&nbsp;</p>
+    <p>Select your slip ID for more information</p>
     <p>
-        <asp:GridView ID="gvCustomerLeases" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource1">
-            <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                <asp:BoundField DataField="SlipID" HeaderText="SlipID" SortExpression="SlipID" />
-                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
-            </Columns>
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MarinaConnectionString %>" SelectCommand="SELECT * FROM [Lease] WHERE ([CustomerID] = @CustomerID)">
+        <asp:DropDownList ID="ddlCustomerSlips" runat="server" AutoPostBack="True" DataSourceID="SlipIdDataSource" DataTextField="SlipID" DataValueField="SlipID">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SlipIdDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:MarinaConnectionString %>" SelectCommand="SELECT [SlipID] FROM [Lease] WHERE ([CustomerID] = @CustomerID)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlCurrentCustomer" Name="CustomerID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
@@ -96,7 +90,10 @@ FROM slip join lease
 ON slip.ID = lease.SlipID
 JOIN dock
 ON slip.DockID = dock.ID
-WHERE slip.ID = 20">
+WHERE slip.ID = @SlipID">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="ddlCustomerSlips" Name="SlipID" PropertyName="SelectedValue" Type="Int32" />
+            </SelectParameters>
         </asp:SqlDataSource>
     </p>
     <p>
