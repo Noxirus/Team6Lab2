@@ -20,7 +20,7 @@
         </asp:SqlDataSource>
     </p>
     <p>
-        <asp:FormView ID="frmviewSlipInfo" runat="server" DataKeyNames="id" DataSourceID="SqlDataSource4">
+        <asp:FormView ID="frmviewSlipInfo" runat="server" DataKeyNames="id" DataSourceID="SqlDataSource4" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" GridLines="Both" Width="228px">
             <EditItemTemplate>
                 id:
                 <asp:Label ID="idLabel1" runat="server" Text='<%# Eval("id") %>' />
@@ -43,6 +43,9 @@
                 <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
                 &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
             </EditItemTemplate>
+            <EditRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+            <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+            <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
             <InsertItemTemplate>
                 width:
                 <asp:TextBox ID="widthTextBox" runat="server" Text='<%# Bind("width") %>' />
@@ -84,6 +87,8 @@
                 <br />
 
             </ItemTemplate>
+            <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+            <RowStyle BackColor="White" ForeColor="#003399" />
         </asp:FormView>
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:MarinaConnectionString %>" SelectCommand="SELECT slip.id, slip.width, slip.length, dock.Name, dock.ElectricalService, dock.WaterService
 FROM slip join lease

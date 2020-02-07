@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,7 +21,17 @@ namespace Team6Lab2
             if (loggedIn)
             {
 
+
+                Response.Redirect("YourSlips.aspx");
             }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+        protected void gvAvailableSlips_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
