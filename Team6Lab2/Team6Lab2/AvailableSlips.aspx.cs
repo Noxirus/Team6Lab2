@@ -7,7 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Team6Lab2
 {
-    public partial class About : Page
+    public partial class AvailableSlips : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
