@@ -188,6 +188,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="YourSlips.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\home_pic.jfif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
