@@ -17,22 +17,40 @@ namespace Team6Lab2
         protected void SlipRegister()
         {
             bool loggedIn = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
-            Session["selectedId"] = gvAvailableSlips.SelectedValue;
+            //Session["selectedId"] = gvAvailableSlips.SelectedValue;
             if (loggedIn)
-            {
-
-
+                {
+                    string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=Marina;Integrated Security=True";
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        string insertStatement =
+                            "INSERT INTO Lease(SlipID, CustomerID) " +
+                            "VALUES(@SlipID, @CustomerID)";
+                        using (SqlCommand cmd = new SqlCommand(insertStatement, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@SlipID", gvAvailableSlips.SelectedValue);
+                            cmd.Parameters.AddWithValue("@CustomerID", "1");
+                            connection.Open();
+                            cmd.ExecuteNonQuery(); // INSERT statement
+                            //customerID = (int)cmd.ExecuteScalar();
+                        }
+                    }
                 Response.Redirect("YourSlips.aspx");
             }
             else
             {
-                Response.Redirect("Login.aspx");
+                Response.Write("<script>alert('Please Log In First');</script>");
+                Response.Redirect("Account/Login.aspx");
             }
         }
-
         protected void gvAvailableSlips_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            SlipRegister();
         }
     }
 }

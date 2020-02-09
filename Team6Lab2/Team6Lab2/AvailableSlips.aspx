@@ -4,7 +4,7 @@
     <h2>Available Slips<%: Title %>.</h2>
     <h3>Currently Available Slips</h3>
     <p>
-        <asp:GridView ID="gvAvailableSlips" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="DataSourceAvailableSlips" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="gvAvailableSlips_SelectedIndexChanged" Width="578px">
+        <asp:GridView ID="gvAvailableSlips" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="DataSourceAvailableSlips" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="gvAvailableSlips_SelectedIndexChanged" Width="578px" SelectedIndex="0">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
@@ -26,6 +26,17 @@
         <asp:SqlDataSource ID="DataSourceAvailableSlips" runat="server" ConnectionString="<%$ ConnectionStrings:MarinaConnectionString %>" SelectCommand="select Slip.ID, Slip.Width, Slip.Length, Dock.WaterService, Dock.ElectricalService
 from Slip join Dock
 on Slip.DockID = Dock.ID
-where Slip.ID not in (select SlipID from Lease)"></asp:SqlDataSource>
+where Slip.ID not in (select SlipID from Lease)" InsertCommand="INSERT INTO Lease(SlipID, CustomerID) VALUES (@ID, '1')">
+            <InsertParameters>
+                <asp:Parameter Name="ID" />
+            </InsertParameters>
+        </asp:SqlDataSource>
     </p>
+    <p>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Reserve this Slip" />
+    </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
     </asp:Content>
