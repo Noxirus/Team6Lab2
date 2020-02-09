@@ -11,7 +11,7 @@ namespace Team6Lab2
 {
 
 
-    public partial class About
+    public partial class AvailableSlips
     {
 
         /// <summary>
