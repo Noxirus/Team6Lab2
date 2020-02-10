@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="YourSlips" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="YourSlips.aspx.cs" Inherits="Team6Lab2.YourSlips" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Your slip reservation history<%: Title %>.</h2>
+    <h2>Your slip reservation history</h2>
     <h3>List below of all your slips</h3>
     <p>Current Customer</p>
     <p>
