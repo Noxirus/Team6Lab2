@@ -43,7 +43,7 @@
         </asp:ScriptManager>
 
         <div>
-            <img src="Images/inlandmarina_banner.jpg" class="width:2000px" style="width: 1578px; height: 210px" />
+            <img src="../Images/inlandmarina_banner.jpg" class="width:2000px" style="width: 1578px; height: 210px" />
         </div>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
