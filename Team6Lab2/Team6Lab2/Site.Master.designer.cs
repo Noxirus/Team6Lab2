@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Team6Lab2
-{
-
-
-    public partial class SiteMaster
-    {
-
+namespace Team6Lab2 {
+    
+    
+    public partial class SiteMaster {
+        
         /// <summary>
         /// MainContent control.
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="AvailableSlips" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AvailableSlips.aspx.cs" Inherits="Team6Lab2.AvailableSlips" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
+    <h2>Available Slips<%: Title %>.</h2>
     <h3>Currently Available Slips</h3>
     <p>
         <asp:GridView ID="gvAvailableSlips" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="DataSourceAvailableSlips" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="gvAvailableSlips_SelectedIndexChanged" Width="578px" SelectedIndex="0">
