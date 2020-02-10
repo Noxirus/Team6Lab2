@@ -11,7 +11,11 @@ namespace Team6Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            bool loggedIn = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            if (!loggedIn)
+            {
+                Response.Redirect("~/Account/Login.aspx");
+            }
         }
         public void Show_Lease(int ID)
         {

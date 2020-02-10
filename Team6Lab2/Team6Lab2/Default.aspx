@@ -1,13 +1,6 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Team6Lab2._Default" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron font-centered">
-        <h1>INLAND MARINA</h1>
-        
-    </div>
-
-    
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server"> 
 
     <div class="row">
         <div class="col-md-6 text-justify">

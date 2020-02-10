@@ -17,7 +17,6 @@ namespace Team6Lab2
         protected void SlipRegister()
         {
             bool loggedIn = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
-            //Session["selectedId"] = gvAvailableSlips.SelectedValue;
             if (loggedIn)
                 {
                     string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=Marina;Integrated Security=True";
@@ -40,7 +39,7 @@ namespace Team6Lab2
             else
             {
                 Response.Write("<script>alert('Please Log In First');</script>");
-                Response.Redirect("Account/Login.aspx");
+                Response.Redirect("~/Account/Login.aspx");
             }
         }
         protected void gvAvailableSlips_SelectedIndexChanged(object sender, EventArgs e)
