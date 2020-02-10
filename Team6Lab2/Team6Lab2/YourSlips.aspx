@@ -5,9 +5,7 @@
     <h3>List below of all your slips</h3>
     <p>Current Customer</p>
     <p>
-        <asp:DropDownList ID="ddlCurrentCustomer" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="FirstName" DataValueField="ID">
-        </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MarinaConnectionString %>" SelectCommand="SELECT * FROM [Customer]"></asp:SqlDataSource>
+        <asp:Label ID="lblCustomerID" runat="server"></asp:Label>
     </p>
     <p>Select your slip ID for more information</p>
     <p>
@@ -15,7 +13,7 @@
         </asp:DropDownList>
         <asp:SqlDataSource ID="SlipIdDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:MarinaConnectionString %>" SelectCommand="SELECT [SlipID] FROM [Lease] WHERE ([CustomerID] = @CustomerID)">
             <SelectParameters>
-                <asp:ControlParameter ControlID="ddlCurrentCustomer" Name="CustomerID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="lblCustomerID" Name="CustomerID" PropertyName="Text" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
     </p>

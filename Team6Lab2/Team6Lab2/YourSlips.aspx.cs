@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +14,15 @@ namespace Team6Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            bool loggedIn = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            if (!loggedIn)
+                Response.Redirect("Account/Login.aspx");
+            else
+            {
+                string currentUser = Context.User.Identity.GetUserName();
+
+                lblCustomerID.Text = CurrentUser(currentUser).ToString() ;
+            }
 
         }
         public void Show_Lease(int ID)
@@ -20,15 +32,34 @@ namespace Team6Lab2
 
         protected void gvCustomerLeases_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //int selectedRowIndex = gvCustomerLeases.SelectedRow.RowIndex;
 
-            //int slipID = gvCustomerLeases.SelectedRow.;
+        }
+        public int CurrentUser(string currentUser)
+        {
 
+            int result = -1;
 
-            //int selectedRowIndex = dgvPackages.SelectedCells[0].RowIndex;
-            //DataGridViewRow selectedRow = dgvPackages.Rows[selectedRowIndex];
-            //not nullable
-            //selectedPackage.PackageID = Convert.ToInt32(selectedRow.Cells["PackageID"].Value);
+            string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=Marina;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string insertStatement =
+                    "SELECT ID " +
+                    "FROM Customer " +
+                    "WHERE FirstName = @CurrentUser";
+                using (SqlCommand cmd = new SqlCommand(insertStatement, connection))
+                {
+                    cmd.Parameters.AddWithValue("@CurrentUser", currentUser);
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow))
+                    {
+                        if (reader.Read()) // if there is data
+                        {
+                            result = Convert.ToInt32(reader["ID"]);
+                        }
+                    }
+                }
+                return result;
+            }
         }
     }
 }

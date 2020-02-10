@@ -75,7 +75,6 @@ namespace Team6Lab2
         protected void Button1_Click(object sender, EventArgs e)
         {
     bool loggedIn = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
-    //Session["selectedId"] = gvAvailableSlips.SelectedValue;
     if (loggedIn)
     {
 
