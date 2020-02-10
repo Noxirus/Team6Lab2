@@ -2,7 +2,11 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: url('../Images/marina2.jpg');
+    color:white;
+    
 }
+
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
@@ -35,4 +39,17 @@ input[type="select"] {
     .body-content {
         padding: 0;
     }
+}
+
+#back {
+    background-color: rgba(0, 0, 0,0.8)
+}
+
+footer {
+    background-color: rgba(0, 0, 0,0.8)
+    
+}
+
+footer{
+    text-align:center;
 }

@@ -186,6 +186,13 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
+    <Content Include="Images\inlandmarina_banner.jpg" />
+    <Content Include="Images\marina1.jpg" />
+    <Content Include="Images\marina2.jpg" />
+    <Content Include="Images\marina3.jpg" />
+    <Content Include="Images\marina4.jfif" />
+    <Content Include="Images\marina4.jpg" />
+    <Content Include="Images\whitemarina.jpg" />
     <Content Include="YourSlips.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\home_pic.jfif" />

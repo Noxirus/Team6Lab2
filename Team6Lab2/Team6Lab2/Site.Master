@@ -6,15 +6,20 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <title><%: Page.Title %> - Inland Marine Web Application</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
 
-</head>
+    </head>
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server">
@@ -37,8 +42,14 @@
             </Scripts>
         </asp:ScriptManager>
 
+        <div>
+            <img src="Images/inlandmarina_banner.jpg" class="width:2000px" style="width: 1578px; height: 210px" />
+        </div>
+
         <div class="navbar navbar-inverse navbar-fixed-top">
+            
             <div class="container">
+                
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
@@ -49,16 +60,15 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <!-- <li><a runat="server" href="~/">Home</a></li> -->
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/AvailableSlips">Available Slips</a></li>
                         <li><a runat="server" href="~/YourSlips">Your Slips</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Account/Login">Login</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
@@ -74,12 +84,22 @@
             </div>
         </div>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
+            <table>
+                <tr>
+                    <td colspan="2" style="height:500px">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="height:20px">
+                        <hr />
+                        <footer>
+                            <p>&copy; <%: DateTime.Now.Year %> - The Brogrammers</p>
+                        </footer>
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
 </body>
