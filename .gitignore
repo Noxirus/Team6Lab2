@@ -349,3 +349,9 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 *.ide
+Team6Lab2/.vs/Team6Lab2/config/applicationhost.config
+Team6Lab2/.vs/Team6Lab2/config/applicationhost.config
+Team6Lab2/.vs/Team6Lab2/v16/Server/sqlite3/storage.ide
+Team6Lab2/.vs/Team6Lab2/v16/Server/sqlite3/storage.ide-shm
+Team6Lab2/.vs/Team6Lab2/v16/Server/sqlite3/storage.ide-wal
+Team6Lab2/Team6Lab2/obj/Debug/Team6Lab2.csprojAssemblyReference.cache
