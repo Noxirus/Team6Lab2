@@ -19,7 +19,7 @@ namespace Team6Lab2
         protected void SlipRegister(int test)
         {
             
-            
+                    //find the correct data from the DB, available slips for reservation
                     string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=Marina;Integrated Security=True";
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
@@ -41,12 +41,13 @@ namespace Team6Lab2
 
         public int CurrentUser(string currentUser)
         {
-            
+            // find the current user
             int result = -1;
 
             string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=Marina;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                // sql statement to find customer ID
                 string insertStatement =
                     "SELECT ID " +
                     "FROM Customer " +
@@ -57,6 +58,7 @@ namespace Team6Lab2
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow))
                     {
+                        // store and return the result
                         if (reader.Read()) // if there is data
                         {
                             result = Convert.ToInt32(reader["ID"]);
@@ -71,24 +73,25 @@ namespace Team6Lab2
         {
 
         }
-
+        //reserve the selected slip
         protected void Button1_Click(object sender, EventArgs e)
         {
-    bool loggedIn = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
-    if (loggedIn)
-    {
-
+            //checks to see if the customer is logged in, else redirects to log in page
+        bool loggedIn = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+        if (loggedIn)
+        {
+        //gets the customerID and run the slip registration
         string currentUser = Context.User.Identity.GetUserName();
             
             int Test = CurrentUser(currentUser);
 
             if (Test != -1)
-                SlipRegister(Test);
+                SlipRegister(Test); // run the slip registration
                 else { }
             }
+        //reddirect to log in page
             else
             {
-                Response.Write("<script>alert('Please Log In First');</script>");
                 Response.Redirect("Account/Login.aspx");
             }
 

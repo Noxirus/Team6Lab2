@@ -9,7 +9,7 @@
     </p>
     <p>Select your slip ID for more information</p>
     <p>
-        <asp:DropDownList ID="ddlCustomerSlips" runat="server" AutoPostBack="True" DataSourceID="SlipIdDataSource" DataTextField="SlipID" DataValueField="SlipID">
+        <asp:DropDownList ID="ddlCustomerSlips" runat="server" AutoPostBack="True" DataSourceID="SlipIdDataSource" DataTextField="SlipID" DataValueField="SlipID" ForeColor="Black">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SlipIdDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:MarinaConnectionString %>" SelectCommand="SELECT [SlipID] FROM [Lease] WHERE ([CustomerID] = @CustomerID)">
             <SelectParameters>

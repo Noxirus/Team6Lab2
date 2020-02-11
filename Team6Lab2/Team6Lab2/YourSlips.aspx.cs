@@ -14,29 +14,29 @@ namespace Team6Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //checks to see if the user is logged in, if not will redirect to login page
             bool loggedIn = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
             if (!loggedIn)
                 Response.Redirect("Account/Login.aspx");
             else
             {
+                //stores the customer ID as a reference for the fieldview
                 string currentUser = Context.User.Identity.GetUserName();
 
                 lblCustomerID.Text = CurrentUser(currentUser).ToString() ;
             }
-
         }
         public void Show_Lease(int ID)
         {
 
         }
-
         protected void gvCustomerLeases_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
         public int CurrentUser(string currentUser)
         {
-
+            //find the customer ID
             int result = -1;
 
             string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=Marina;Integrated Security=True";
